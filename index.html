@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lvenia Apps</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta name="theme-color" content="#3A1440">
+<meta name="description" content="Lvenia Apps makes simple, fast Android apps. Home of KlypRose: Video Downloader.">
+<meta name="robots" content="index, follow">
+<style>
+  :root {
+    --bg: #f7f6fa;
+    --card: #ffffff;
+    --border: #e6e3ee;
+    --text: #17151f;
+    --muted: #5d5970;
+    --accent: #e0245e;
+    --gradient: linear-gradient(135deg, #ff4d7e, #ff8a4c);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0b10;
+      --card: #15151d;
+      --border: #26263a;
+      --text: #f2f1f7;
+      --muted: #a9a6ba;
+      --accent: #ff4d7e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px 64px; }
+  header { padding: 48px 0 8px; display: flex; align-items: center; gap: 14px; }
+  .mark { width: 56px; height: 56px; flex: none; border-radius: 14px; background: var(--gradient); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; box-shadow: 0 6px 18px rgba(176, 30, 82, 0.28); }
+  .name { font-size: 26px; font-weight: 800; margin: 0; }
+  .tag { color: var(--muted); margin: 0; }
+  h2 { font-size: 20px; margin: 36px 0 12px; }
+  .app {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 20px;
+  }
+  .app img { width: 84px; height: 84px; border-radius: 20px; flex: none; }
+  .app h3 { margin: 0 0 4px; font-size: 19px; }
+  .app p { margin: 0 0 12px; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; padding: 8px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px; }
+  .btn.primary { background: var(--gradient); color: #fff; }
+  .btn.ghost { border: 1px solid var(--border); color: var(--text); }
+  .soon { display: inline-block; padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); border: 1px dashed var(--border); }
+  .contact { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 20px; }
+  .contact p { margin: 0; }
+  a { color: var(--accent); }
+  footer { margin-top: 40px; color: var(--muted); font-size: 14px; }
+  @media (max-width: 480px) {
+    .app { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark" aria-hidden="true">L</div>
+    <div>
+      <p class="name">Lvenia Apps</p>
+      <p class="tag">Simple, fast Android apps that respect your privacy.</p>
+    </div>
+  </header>
+
+  <h2>Our apps</h2>
+  <div class="app">
+    <img src="klyprose-privacy/apple-touch-icon.png" alt="KlypRose app icon">
+    <div>
+      <h3>KlypRose: Video Downloader</h3>
+      <p>Save videos you're allowed to keep in one tap, in up to 1080p, straight to your gallery. No account, no sign-in.</p>
+      <div class="links">
+        <span class="soon">Coming soon to Google Play</span>
+        <a class="btn ghost" href="klyprose-privacy/">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>Questions, feedback or support: <a href="mailto:techfriend1124@gmail.com">techfriend1124@gmail.com</a></p>
+  </div>
+
+  <footer>© 2026 Lvenia Apps</footer>
+</div>
+</body>
+</html>
