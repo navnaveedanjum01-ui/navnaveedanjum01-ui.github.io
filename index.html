@@ -1,96 +1,1000 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lvenia Apps</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="theme-color" content="#3A1440">
-<meta name="description" content="Lvenia Apps makes simple, fast Android apps. Home of KlypRose: Video Downloader.">
-<meta name="robots" content="index, follow">
-<style>
-  :root {
-    --bg: #f7f6fa;
-    --card: #ffffff;
-    --border: #e6e3ee;
-    --text: #17151f;
-    --muted: #5d5970;
-    --accent: #e0245e;
-    --gradient: linear-gradient(135deg, #ff4d7e, #ff8a4c);
-  }
-  @media (prefers-color-scheme: dark) {
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lvenia Apps Premium Android Apps, Crafted Solo</title>
+  <link rel="icon" type="image/png" href="lveniaapps.png">
+  <link rel="apple-touch-icon" href="lveniaapps.png">
+  <meta name="theme-color" content="#0a0714">
+  <meta name="description" content="Lvenia Apps is the independent Android studio of one developer home of KlypRose: Video Downloader, KidLingo English and Learn French. Simple, fast, privacy-first apps.">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lvenia Apps Premium Android Apps, Crafted Solo">
+  <meta property="og:description" content="Simple, fast, privacy-first Android apps. Home of KlypRose, KidLingo English and Learn French.">
+  <meta property="og:image" content="lveniaapps.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============ Design tokens ============ */
     :root {
-      --bg: #0b0b10;
-      --card: #15151d;
-      --border: #26263a;
-      --text: #f2f1f7;
-      --muted: #a9a6ba;
-      --accent: #ff4d7e;
+      --bg: #07050d;
+      --bg-soft: #0d0918;
+      --surface: rgba(255, 255, 255, 0.03);
+      --surface-strong: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.09);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      --text: #f4f2fb;
+      --muted: #a49eba;
+      --faint: #6f6a85;
+
+      --violet: #8b5cf6;
+      --magenta: #d946ef;
+      --rose: #f43f5e;
+      --rose-soft: #fb7185;
+      --blue: #3b82f6;
+      --red: #ef4444;
+
+      --brand-grad: linear-gradient(100deg, #a78bfa 0%, #8b5cf6 35%, #d946ef 100%);
+      --glow-violet: rgba(139, 92, 246, 0.35);
+
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+
+      --font-head: "Sora", system-ui, sans-serif;
+      --font-body: "Inter", system-ui, sans-serif;
+
+      --nav-h: 72px;
     }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px 64px; }
-  header { padding: 48px 0 8px; display: flex; align-items: center; gap: 14px; }
-  .mark { width: 56px; height: 56px; flex: none; border-radius: 14px; background: var(--gradient); display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 28px; box-shadow: 0 6px 18px rgba(176, 30, 82, 0.28); }
-  .name { font-size: 26px; font-weight: 800; margin: 0; }
-  .tag { color: var(--muted); margin: 0; }
-  h2 { font-size: 20px; margin: 36px 0 12px; }
-  .app {
-    display: flex; gap: 18px; align-items: flex-start;
-    background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 20px;
-  }
-  .app img { width: 84px; height: 84px; border-radius: 20px; flex: none; }
-  .app h3 { margin: 0 0 4px; font-size: 19px; }
-  .app p { margin: 0 0 12px; color: var(--muted); }
-  .links { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn { display: inline-block; padding: 8px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px; }
-  .btn.primary { background: var(--gradient); color: #fff; }
-  .btn.ghost { border: 1px solid var(--border); color: var(--text); }
-  .soon { display: inline-block; padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--muted); border: 1px dashed var(--border); }
-  .contact { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 20px; }
-  .contact p { margin: 0; }
-  a { color: var(--accent); }
-  footer { margin-top: 40px; color: var(--muted); font-size: 14px; }
-  @media (max-width: 480px) {
-    .app { flex-direction: column; }
-  }
-</style>
+
+    /* ============ Reset / base ============ */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-padding-top: calc(var(--nav-h) + 16px); }
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* Colorful branded scrollbar */
+    html { scrollbar-color: #8b5cf6 #0d0918; scrollbar-width: auto; }
+    ::-webkit-scrollbar { width: 12px; height: 12px; }
+    ::-webkit-scrollbar-track { background: #0d0918; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #a78bfa, #8b5cf6 50%, #d946ef);
+      border-radius: 999px;
+      border: 3px solid #0d0918;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #c4b5fd, #a78bfa 50%, #e879f9);
+    }
+    ::-webkit-scrollbar-corner { background: #0d0918; }
+
+    h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; margin: 0; letter-spacing: -0.02em; }
+    p { margin: 0; }
+    a { color: inherit; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+
+    ::selection { background: rgba(139, 92, 246, 0.45); color: #fff; }
+
+    :focus-visible {
+      outline: 2px solid var(--violet);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    .wrap { width: min(1120px, 100% - 48px); margin-inline: auto; }
+    @media (max-width: 560px) { .wrap { width: min(1120px, 100% - 32px); } }
+
+    /* ============ Ambient background ============ */
+    .scene {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      background:
+        radial-gradient(1200px 800px at 85% -10%, rgba(139, 92, 246, 0.16), transparent 60%),
+        radial-gradient(1000px 700px at -10% 20%, rgba(217, 70, 239, 0.10), transparent 60%),
+        radial-gradient(900px 700px at 50% 115%, rgba(99, 61, 219, 0.14), transparent 60%),
+        var(--bg);
+    }
+    .scene::after {
+      /* fine grain for a premium finish */
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.5;
+      will-change: transform;
+    }
+    .orb--one { width: 480px; height: 480px; top: -160px; right: -80px; background: radial-gradient(circle, rgba(139,92,246,.55), transparent 70%); animation: drift 26s ease-in-out infinite; }
+    .orb--two { width: 420px; height: 420px; top: 30%; left: -160px; background: radial-gradient(circle, rgba(217,70,239,.4), transparent 70%); animation: drift 32s ease-in-out infinite reverse; }
+    .orb--three { width: 520px; height: 520px; bottom: -220px; right: 10%; background: radial-gradient(circle, rgba(99,61,219,.45), transparent 70%); animation: drift 38s ease-in-out infinite; }
+    @keyframes drift {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      33%      { transform: translate3d(40px, -30px, 0) scale(1.06); }
+      66%      { transform: translate3d(-30px, 24px, 0) scale(0.97); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orb { animation: none; }
+    }
+
+    /* ============ Reveal animations ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s cubic-bezier(.22,.61,.36,1), transform 0.8s cubic-bezier(.22,.61,.36,1);
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .reveal[data-delay="1"] { transition-delay: 0.1s; }
+    .reveal[data-delay="2"] { transition-delay: 0.2s; }
+    .reveal[data-delay="3"] { transition-delay: 0.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ============ Navigation ============ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.is-scrolled {
+      background: rgba(9, 6, 18, 0.75);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+    .nav .wrap { display: flex; align-items: center; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+    .brand__logo {
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      box-shadow: 0 4px 22px rgba(139, 92, 246, 0.45);
+    }
+    .brand__name {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .brand__name span {
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav__links { display: flex; align-items: center; gap: 28px; }
+    .nav__link {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--muted);
+      position: relative;
+      transition: color 0.25s ease;
+    }
+    .nav__link::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: -5px;
+      width: 100%; height: 2px;
+      border-radius: 2px;
+      background: var(--brand-grad);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .nav__link:hover { color: var(--text); }
+    .nav__link:hover::after { transform: scaleX(1); }
+    .nav__cta {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 9px 20px;
+      border-radius: 999px;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+    .nav__cta:hover {
+      border-color: rgba(139, 92, 246, 0.55);
+      background: rgba(139, 92, 246, 0.12);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 720px) {
+      .nav__links { display: none; }
+    }
+
+    /* ============ Hero ============ */
+    .hero {
+      position: relative;
+      padding: calc(var(--nav-h) + 72px) 0 84px;
+      text-align: center;
+    }
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      background: rgba(139, 92, 246, 0.08);
+      color: #c4b5fd;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
+    .hero__badge .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a78bfa, #d946ef);
+      box-shadow: 0 0 12px rgba(167, 139, 250, 0.9);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.35); opacity: 0.75; }
+    }
+    .hero__title {
+      font-size: clamp(2.6rem, 6.4vw, 4.6rem);
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+    .hero__title .grad {
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero__sub {
+      max-width: 620px;
+      margin: 0 auto 36px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+    .hero__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-bottom: 72px; }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 30px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 15.5px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .btn:active { transform: translateY(1px) scale(0.99); }
+    .btn--primary {
+      color: #fff;
+      background: linear-gradient(100deg, #7c3aed, #9333ea 45%, #c026d3);
+      box-shadow: 0 8px 28px rgba(139, 92, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(139, 92, 246, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+    .btn--primary::after {
+      content: "";
+      position: absolute;
+      top: 0; left: -80%;
+      width: 50%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s ease;
+    }
+    .btn--primary:hover::after { left: 130%; }
+    .btn--ghost {
+      color: var(--text);
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    .btn--ghost:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 92, 246, 0.5);
+      background: rgba(139, 92, 246, 0.1);
+    }
+
+    /* Floating app icons in hero */
+    .hero__icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(18px, 5vw, 46px);
+      margin-bottom: 10px;
+    }
+    .hero__chip {
+      width: clamp(84px, 12vw, 118px);
+      aspect-ratio: 1;
+      border-radius: 26%;
+      padding: clamp(10px, 1.6vw, 15px);
+      background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255,255,255,0.1);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      animation: float 6s ease-in-out infinite;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .hero__chip img { border-radius: 22%; width: 100%; height: 100%; object-fit: cover; }
+    .hero__chip:nth-child(1) { animation-delay: 0s; transform: rotate(-4deg); }
+    .hero__chip:nth-child(2) { animation-delay: 1.2s; transform: scale(1.28); border-color: rgba(139,92,246,0.45); box-shadow: 0 24px 60px rgba(109, 40, 217, 0.35); z-index: 1; }
+    .hero__chip:nth-child(3) { animation-delay: 2.2s; transform: rotate(4deg); }
+    .hero__chip:hover { border-color: rgba(139, 92, 246, 0.6); box-shadow: 0 26px 60px rgba(139, 92, 246, 0.35); }
+    @keyframes float {
+      0%, 100% { translate: 0 0; }
+      50%      { translate: 0 -12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero__chip, .hero__badge .dot { animation: none; }
+    }
+
+    .scroll-cue {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-top: 56px;
+      color: var(--faint);
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+    .scroll-cue::after {
+      content: "";
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, rgba(167,139,250,.8), transparent);
+      animation: dip 2s ease-in-out infinite;
+    }
+    @keyframes dip {
+      0%, 100% { transform: scaleY(0.5); transform-origin: top; opacity: .4; }
+      50%      { transform: scaleY(1); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { .scroll-cue::after { animation: none; } }
+
+    /* ============ Stats strip ============ */
+    .stats { padding: 8px 0 24px; }
+    .stats__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .stat {
+      text-align: center;
+      padding: 26px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+    .stat:hover { transform: translateY(-4px); border-color: rgba(139, 92, 246, 0.4); background: var(--surface-strong); }
+    .stat__num {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .stat__label { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    @media (max-width: 640px) {
+      .stats__grid { grid-template-columns: 1fr; }
+      .stat { padding: 20px 16px; }
+    }
+
+    /* ============ Section headings ============ */
+    .section { padding: 96px 0; position: relative; }
+    @media (max-width: 720px) { .section { padding: 68px 0; } }
+    .section__head { max-width: 680px; margin-bottom: 64px; }
+    .section__head--center { text-align: center; margin-inline: auto; }
+    .section__title { font-size: clamp(1.9rem, 4.4vw, 2.9rem); font-weight: 800; }
+    .section__title .grad {
+      background: var(--brand-grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .section__desc { color: var(--muted); margin-top: 16px; font-size: 1.05rem; }
+
+    /* ============ App sections ============ */
+    .app-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      align-items: center;
+      gap: clamp(32px, 6vw, 80px);
+      padding: 56px clamp(24px, 4vw, 52px);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012) 55%);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      margin-bottom: 40px;
+      transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .app-section:last-child { margin-bottom: 0; }
+    .app-section::before {
+      /* themed glow that reacts on hover */
+      content: "";
+      position: absolute;
+      inset: -40%;
+      z-index: -1;
+      background: radial-gradient(closest-side, var(--app-glow, rgba(139,92,246,0.16)), transparent 72%);
+      opacity: 0.55;
+      transition: opacity 0.45s ease;
+      pointer-events: none;
+    }
+    .app-section:hover {
+      border-color: var(--app-border, rgba(139,92,246,0.4));
+      transform: translateY(-5px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    }
+    .app-section:hover::before { opacity: 1; }
+    .app-section--flip .app-visual { order: 2; }
+
+    /* per-app theming */
+    .app--klyprose   { --app-glow: rgba(244, 63, 94, 0.18);  --app-border: rgba(244, 63, 94, 0.45); }
+    .app--kidlingo   { --app-glow: rgba(139, 92, 246, 0.2);  --app-border: rgba(139, 92, 246, 0.5); }
+    .app--learnfrench{ --app-glow: rgba(59, 130, 246, 0.17); --app-border: rgba(59, 130, 246, 0.45); }
+
+    .app-visual {
+      display: grid;
+      place-items: center;
+      position: relative;
+      min-height: 300px;
+    }
+    .app-visual__ring {
+      position: absolute;
+      width: min(340px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px dashed var(--app-border, rgba(139,92,246,.4));
+      opacity: 0.6;
+      animation: spin 40s linear infinite;
+    }
+    .app-visual__ring::before {
+      content: "";
+      position: absolute;
+      top: -4px; left: 50%;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--app-accent, var(--violet));
+      box-shadow: 0 0 16px 3px var(--app-accent, var(--violet));
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .app-visual__ring { animation: none; } }
+
+    .app-visual__halo {
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--app-glow, rgba(139,92,246,.35)), transparent 70%);
+      filter: blur(30px);
+    }
+    .app-visual__icon {
+      width: clamp(150px, 20vw, 200px);
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 26%;
+      border: 1px solid var(--border-hover);
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.55),
+        0 0 0 10px rgba(255, 255, 255, 0.03),
+        inset 0 2px 12px rgba(255, 255, 255, 0.12);
+      transition: transform 0.45s cubic-bezier(.34,1.56,.64,1), box-shadow 0.45s ease;
+      position: relative;
+    }
+    .app-section:hover .app-visual__icon {
+      transform: scale(1.05) translateY(-6px);
+      box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.6),
+        0 0 60px var(--app-glow, rgba(139,92,246,.4)),
+        inset 0 2px 12px rgba(255, 255, 255, 0.15);
+    }
+
+    .app-info__index {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 14px;
+      display: block;
+    }
+    .app-info__index b {
+      color: var(--app-accent, var(--violet));
+      font-weight: 700;
+    }
+    .app-info__title { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 800; margin-bottom: 10px; }
+    .app-info__tagline {
+      font-size: 1.02rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+      max-width: 46ch;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+    .chip {
+      font-size: 13px;
+      font-weight: 600;
+      color: #cfc9e6;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+    .chip:hover { border-color: var(--app-border, rgba(139,92,246,.45)); color: var(--text); }
+
+    .app-info__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    .soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #d8d2ec;
+      border: 1px dashed var(--app-border, rgba(139,92,246,.45));
+      background: rgba(139, 92, 246, 0.06);
+    }
+    .soon .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--app-accent, var(--violet));
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    .btn--app {
+      font-size: 14px;
+      padding: 12px 24px;
+      background: var(--surface-strong);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn--app:hover {
+      transform: translateY(-2px);
+      border-color: var(--app-border, rgba(139,92,246,.5));
+      background: var(--app-accent-soft, rgba(139,92,246,.1));
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    /* themed accents */
+    .app--klyprose    { --app-accent: var(--rose-soft); --app-accent-soft: rgba(244,63,94,.11); }
+    .app--kidlingo    { --app-accent: var(--violet);    --app-accent-soft: rgba(139,92,246,.12); }
+    .app--learnfrench { --app-accent: var(--blue);      --app-accent-soft: rgba(59,130,246,.11); }
+
+    @media (max-width: 900px) {
+      .app-section { grid-template-columns: 1fr; text-align: center; gap: 36px; }
+      .app-section--flip .app-visual { order: 0; }
+      .app-info__tagline { margin-inline: auto; }
+      .chips, .app-info__actions { justify-content: center; }
+      .app-visual { min-height: 260px; }
+    }
+
+    /* ============ About / values ============ */
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .value {
+      padding: 30px 26px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+    .value:hover {
+      transform: translateY(-5px);
+      border-color: rgba(139, 92, 246, 0.4);
+      background: var(--surface-strong);
+    }
+    .value__icon {
+      width: 46px; height: 46px;
+      display: grid; place-items: center;
+      border-radius: 14px;
+      background: rgba(139, 92, 246, 0.14);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      margin-bottom: 18px;
+      font-size: 20px;
+    }
+    .value__title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .value__text { color: var(--muted); font-size: 14.5px; }
+    @media (max-width: 860px) {
+      .values { grid-template-columns: 1fr; }
+    }
+
+    /* ============ Contact ============ */
+    .contact-card {
+      position: relative;
+      text-align: center;
+      padding: clamp(48px, 8vw, 80px) 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      background:
+        radial-gradient(600px 260px at 50% -80px, rgba(139, 92, 246, 0.25), transparent 70%),
+        var(--surface);
+      overflow: hidden;
+    }
+    .contact-card__title { font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 800; margin-bottom: 12px; }
+    .contact-card__text { color: var(--muted); max-width: 480px; margin: 0 auto 32px; }
+    .contact-card__email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .contact-card__email svg { flex: none; }
+
+    /* ============ Footer ============ */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 44px 0 36px;
+      margin-top: 40px;
+    }
+    .footer__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer__brand { display: flex; align-items: center; gap: 12px; }
+    .footer__logo { width: 44px; height: 44px; border-radius: 12px; box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35); }
+    .footer__name { font-family: var(--font-head); font-weight: 700; font-size: 15px; }
+    .footer__legal { color: var(--faint); font-size: 13.5px; }
+    .footer__links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer__link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.25s ease;
+    }
+    .footer__link:hover { color: #c4b5fd; }
+    @media (max-width: 640px) {
+      .footer__inner { flex-direction: column; text-align: center; }
+      .footer__links { justify-content: center; }
+    }
+
+    /* Exception: privacy of people who prefer reduced motion applies to reveals too */
+    @media (prefers-reduced-motion: reduce) {
+      .app-section, .app-section:hover, .value, .stat { transition: none; transform: none; }
+      .app-section:hover .app-visual__icon { transform: none; }
+    }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="mark" aria-hidden="true">L</div>
-    <div>
-      <p class="name">Lvenia Apps</p>
-      <p class="tag">Simple, fast Android apps that respect your privacy.</p>
-    </div>
-  </header>
 
-  <h2>Our apps</h2>
-  <div class="app">
-    <img src="klyprose-privacy/apple-touch-icon.png" alt="KlypRose app icon">
-    <div>
-      <h3>KlypRose: Video Downloader</h3>
-      <p>Save videos you're allowed to keep in one tap, in up to 1080p, straight to your gallery. No account, no sign-in.</p>
-      <div class="links">
-        <span class="soon">Coming soon to Google Play</span>
-        <a class="btn ghost" href="klyprose-privacy/">Privacy Policy</a>
+  <!-- Ambient background -->
+  <div class="scene" aria-hidden="true">
+    <div class="orb orb--one"></div>
+    <div class="orb orb--two"></div>
+    <div class="orb orb--three"></div>
+  </div>
+
+  <!-- ============ Navigation ============ -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Lvenia Apps back to top">
+        <img class="brand__logo" src="lveniaapps.png" alt="Lvenia Apps logo" width="54" height="54">
+        <span class="brand__name">Lvenia&nbsp;<span>Apps</span></span>
+      </a>
+      <div class="nav__links">
+        <a class="nav__link" href="#apps">Apps</a>
+        <a class="nav__link" href="#about">About</a>
+        <a class="nav__link" href="#contact">Contact</a>
       </div>
+      <a class="nav__cta" href="#contact">Get in touch</a>
     </div>
-  </div>
+  </nav>
 
-  <h2>Contact</h2>
-  <div class="contact">
-    <p>Questions, feedback or support: <a href="mailto:techfriend1124@gmail.com">techfriend1124@gmail.com</a></p>
-  </div>
+  <main id="top">
 
-  <footer>© 2026 Lvenia Apps</footer>
-</div>
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero__badge reveal"><span class="dot" aria-hidden="true"></span> Independent Android studio built by one developer</p>
+        <h1 class="hero__title reveal" data-delay="1">Simple, fast Android apps,<br>crafted <span class="grad">with care.</span></h1>
+        <p class="hero__sub reveal" data-delay="2">
+          Lvenia Apps makes polished tools and learning apps that respect your privacy
+          no accounts, no clutter, no compromises. Just thoughtful software that works.
+        </p>
+        <div class="hero__actions reveal" data-delay="3">
+          <a class="btn btn--primary" href="#apps">
+            Explore our apps
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <div class="hero__icons reveal" data-delay="2">
+          <div class="hero__chip"><img src="klyprose.png" alt="KlypRose app icon" width="118" height="118" fetchpriority="high"></div>
+          <div class="hero__chip"><img src="kidlingo.png" alt="KidLingo app icon" width="118" height="118" fetchpriority="high"></div>
+          <div class="hero__chip"><img src="learnfrench.png" alt="Learn French app icon" width="118" height="118" fetchpriority="high"></div>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true">Scroll</div>
+      </div>
+    </section>
+
+    <!-- ============ Stats ============ -->
+    <section class="stats" aria-label="Studio at a glance">
+      <div class="wrap">
+        <div class="stats__grid">
+          <div class="stat reveal">
+            <div class="stat__num">3</div>
+            <p class="stat__label">Apps crafted &amp; shipping</p>
+          </div>
+          <div class="stat reveal" data-delay="1">
+            <div class="stat__num">0</div>
+            <p class="stat__label">Accounts or sign-ups required</p>
+          </div>
+          <div class="stat reveal" data-delay="2">
+            <div class="stat__num">1</div>
+            <p class="stat__label">Developer who sweats every detail</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Apps ============ -->
+    <section class="section" id="apps">
+      <div class="wrap">
+        <div class="section__head section__head--center">
+          <p class="reveal">The collection</p>
+          <h2 class="section__title reveal" data-delay="1">Our <span class="grad">apps</span></h2>
+          <p class="section__desc reveal" data-delay="2">
+            Three focused Android apps, each designed to do one thing exceptionally well
+            and all rolling out to Google Play soon.
+          </p>
+        </div>
+
+        <!-- KlypRose -->
+        <article class="app-section app--klyprose reveal" aria-labelledby="klyprose-title">
+          <div class="app-visual">
+            <div class="app-visual__ring" aria-hidden="true"></div>
+            <div class="app-visual__halo" aria-hidden="true"></div>
+            <img class="app-visual__icon" src="klyprose.png" alt="KlypRose: Video Downloader app icon" width="200" height="200" loading="lazy" decoding="async">
+          </div>
+          <div class="app-info">
+            <span class="app-info__index"><b>01</b> Media tool</span>
+            <h3 class="app-info__title" id="klyprose-title">KlypRose: Video Downloader</h3>
+            <p class="app-info__tagline">
+              Save the videos you're allowed to keep in one tap up to 1080p, straight to your
+              gallery. No account, no sign-in, just a clean fast download every time.
+            </p>
+            <div class="chips">
+              <span class="chip">Android</span>
+              <span class="chip">Up to 1080p</span>
+              <span class="chip">Saves to your gallery</span>
+              <span class="chip">No sign-in</span>
+            </div>
+            <div class="app-info__actions">
+              <span class="soon"><span class="dot" aria-hidden="true"></span>Coming soon to Google Play</span>
+              <a class="btn btn--app" href="https://navnaveedanjum01-ui.github.io/klyprose-privacy" rel="noopener">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- KidLingo English -->
+        <article class="app-section app-section--flip app--kidlingo reveal" aria-labelledby="kidlingo-title">
+          <div class="app-visual">
+            <div class="app-visual__ring" aria-hidden="true"></div>
+            <div class="app-visual__halo" aria-hidden="true"></div>
+            <img class="app-visual__icon" src="kidlingo.png" alt="KidLingo English app icon" width="200" height="200" loading="lazy" decoding="async">
+          </div>
+          <div class="app-info">
+            <span class="app-info__index"><b>02</b> Learning for kids</span>
+            <h3 class="app-info__title" id="kidlingo-title">KidLingo English</h3>
+            <p class="app-info__tagline">
+              A playful way for kids to learn English a friendly owl buddy, bright colorful
+              practice and bite-sized lessons designed to be safe, simple and genuinely fun
+              for young learners.
+            </p>
+            <div class="chips">
+              <span class="chip">Android</span>
+              <span class="chip">Made for kids</span>
+              <span class="chip">Bite-sized lessons</span>
+              <span class="chip">Playful by design</span>
+            </div>
+            <div class="app-info__actions">
+              <span class="soon"><span class="dot" aria-hidden="true"></span>Coming soon to Google Play</span>
+              <a class="btn btn--app" href="https://navnaveedanjum01-ui.github.io/kidlingo-privacy" rel="noopener">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Learn French -->
+        <article class="app-section app--learnfrench reveal" aria-labelledby="learnfrench-title">
+          <div class="app-visual">
+            <div class="app-visual__ring" aria-hidden="true"></div>
+            <div class="app-visual__halo" aria-hidden="true"></div>
+            <img class="app-visual__icon" src="learnfrench.png" alt="Learn French app icon" width="200" height="200" loading="lazy" decoding="async">
+          </div>
+          <div class="app-info">
+            <span class="app-info__index"><b>03</b> Language learning</span>
+            <h3 class="app-info__title" id="learnfrench-title">Learn French</h3>
+            <p class="app-info__tagline">
+              French for beginners, made approachable vocabulary, everyday phrases and
+              useful expressions in short focused sessions that fit into any part of your day.
+            </p>
+            <div class="chips">
+              <span class="chip">Android</span>
+              <span class="chip">Beginner-friendly</span>
+              <span class="chip">Everyday French</span>
+              <span class="chip">Short sessions</span>
+            </div>
+            <div class="app-info__actions">
+              <span class="soon"><span class="dot" aria-hidden="true"></span>Coming soon to Google Play</span>
+              <a class="btn btn--app" href="https://navnaveedanjum01-ui.github.io/learnfrench-privacy" rel="noopener">
+                Privacy Policy
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ About ============ -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="reveal">The philosophy</p>
+          <h2 class="section__title reveal" data-delay="1">Built by one developer,<br><span class="grad">obsessed with quality.</span></h2>
+          <p class="section__desc reveal" data-delay="2">
+            Lvenia Apps is a solo studio. Every screen, interaction and permission is reviewed
+            by the same person who ships it so nothing wasteful, complicated or intrusive
+            ever makes it into an install.
+          </p>
+        </div>
+        <div class="values">
+          <div class="value reveal">
+            <div class="value__icon" aria-hidden="true">🔒</div>
+            <h3 class="value__title">Privacy first</h3>
+            <p class="value__text">Plain-language policies and minimal permissions. Your data stays on your device no accounts, no tracking profiles, no surprises.</p>
+          </div>
+          <div class="value reveal" data-delay="1">
+            <div class="value__icon" aria-hidden="true">⚡</div>
+            <h3 class="value__title">Lightweight by design</h3>
+            <p class="value__text">Small installs that stay fast on older phones. Every feature has to earn its place everything else stays out.</p>
+          </div>
+          <div class="value reveal" data-delay="2">
+            <div class="value__icon" aria-hidden="true">💗</div>
+            <h3 class="value__title">Real human support</h3>
+            <p class="value__text">Questions and feedback go straight to the developer. No ticket queues, no bots just e-mail answered by someone who cares.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <h2 class="contact-card__title">Let's talk.</h2>
+          <p class="contact-card__text">
+            Questions, feedback or support for any Lvenia Apps product the inbox is always open.
+          </p>
+          <a class="btn btn--primary contact-card__email" href="mailto:techfriend1124@gmail.com">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m3 6 9 7 9-7"/></svg>
+            techfriend1124@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <img class="footer__logo" src="lveniaapps.png" alt="Lvenia Apps logo" width="44" height="44" loading="lazy">
+        <span class="footer__name">Lvenia Apps</span>
+      </div>
+      <nav class="footer__links" aria-label="Privacy policies">
+        <a class="footer__link" href="https://navnaveedanjum01-ui.github.io/klyprose-privacy">KlypRose Privacy</a>
+        <a class="footer__link" href="https://navnaveedanjum01-ui.github.io/kidlingo-privacy">KidLingo Privacy</a>
+        <a class="footer__link" href="https://navnaveedanjum01-ui.github.io/learnfrench-privacy">Learn French Privacy</a>
+      </nav>
+      <p class="footer__legal">© <span id="year">2026</span> Lvenia Apps. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navbar background on scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Scroll-reveal animations
+    const revealed = document.querySelectorAll('.reveal');
+    const markVisible = (el) => el.classList.add('is-visible');
+    const inViewport = (el) => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight - 40 && r.bottom > 0;
+    };
+
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      let ioFired = false;
+      const io = new IntersectionObserver((entries) => {
+        ioFired = true;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            markVisible(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealed.forEach((el) => io.observe(el));
+
+      // Safety net: if IntersectionObserver never fires (rare broken environments),
+      // reveal in-view elements on scroll instead so nothing stays hidden.
+      window.addEventListener('load', () => setTimeout(() => {
+        if (ioFired) return;
+        const sweep = () => revealed.forEach((el) => {
+          if (!el.classList.contains('is-visible') && inViewport(el)) markVisible(el);
+        });
+        sweep();
+        window.addEventListener('scroll', sweep, { passive: true });
+      }, 1200));
+    } else {
+      revealed.forEach(markVisible);
+    }
+  </script>
 </body>
 </html>
